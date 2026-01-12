@@ -8,3 +8,8 @@ Quick start:
 
 Domain:
 Point raynelaw.sa to your host following their DNS instructions.
+
+
+27 git add .
+  28 git commit -m "test"
+  29 git push origin main
