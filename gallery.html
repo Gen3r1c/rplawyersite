@@ -10,7 +10,7 @@
 <header class="site-header">
   <div class="container header-inner">
     <a class="brand" href="index.html" aria-label="Salvation of Souls MC Home">
-      <img src="assets/img/pack.png" alt="Salvation of Souls MC logo"/>
+      <img src="assets/img/SOSMC_new_patch_2.png" alt="Salvation of Souls MC patch"/>
     </a>
     <nav class="nav">
       <a href="index.html">Home</a>
@@ -31,84 +31,69 @@
     <div class="gallery-grid">
       <div class="gallery-item">
         <img src="assets/img/church.png" alt="Church event"/>
-        <div class="caption">Club ceremony at the church event.</div>
       </div>
       <div class="gallery-item">
         <img src="assets/img/clunhouse.png" alt="Clubhouse"/>
-        <div class="caption">The MC clubhouse and crew hangout.</div>
       </div>
       <div class="gallery-item">
         <img src="assets/img/content.png" alt="Content capture"/>
-        <div class="caption">Captured moments from club life.</div>
       </div>
       <div class="gallery-item">
         <img src="assets/img/dawdawd.png" alt="Event photo"/>
-        <div class="caption">A day in the life of Salvation of Souls.</div>
       </div>
       <div class="gallery-item">
         <img src="assets/img/dwadawdwad.png" alt="Event photo"/>
-        <div class="caption">Run and ride photo from the club.</div>
       </div>
       <div class="gallery-item">
         <img src="assets/img/f the fib.png" alt="Hangout moment"/>
-        <div class="caption">Club members during a street hangout.</div>
       </div>
       <div class="gallery-item">
         <img src="assets/img/group.png" alt="Group photo"/>
-        <div class="caption">Founding members together after a ride.</div>
       </div>
       <div class="gallery-item">
         <img src="assets/img/group2.png" alt="Group photo"/>
-        <div class="caption">Brothers and sisters of the MC on patrol.</div>
       </div>
       <div class="gallery-item">
         <img src="assets/img/image.png" alt="Club photo"/>
-        <div class="caption">Random club moments captured live.</div>
       </div>
       <div class="gallery-item">
         <img src="assets/img/landscape.png" alt="Landscape ride"/>
-        <div class="caption">The open road and scenic ride views.</div>
       </div>
       <div class="gallery-item">
         <img src="assets/img/luna.png" alt="Luna Rayne"/>
-        <div class="caption">Luna Rayne representing Salvation of Souls.</div>
       </div>
       <div class="gallery-item">
         <img src="assets/img/luna2.png" alt="Luna Rayne"/>
-        <div class="caption">Luna Rayne leading the club forward.</div>
       </div>
       <div class="gallery-item">
         <img src="assets/img/monkey time.png" alt="Monkey time"/>
-        <div class="caption">Fun club energy during downtime.</div>
       </div>
       <div class="gallery-item">
         <img src="assets/img/pack.png" alt="Pack image"/>
-        <div class="caption">The pack together before a run.</div>
       </div>
       <div class="gallery-item">
         <img src="assets/img/pack2.png" alt="Pack image"/>
-        <div class="caption">Full pack photo from the event.</div>
       </div>
       <div class="gallery-item">
         <img src="assets/img/Screenshot_2026-05-01_185427.png" alt="Screenshot event"/>
-        <div class="caption">Screenshot from a club operation.</div>
       </div>
       <div class="gallery-item">
         <img src="assets/img/Screenshot_2026-05-01_185552.png" alt="Screenshot event"/>
-        <div class="caption">Screenshot showing chapter activity.</div>
       </div>
       <div class="gallery-item">
         <img src="assets/img/the dudes.png" alt="The dudes"/>
-        <div class="caption">Crew photo from a club outing.</div>
       </div>
       <div class="gallery-item">
         <img src="assets/img/trey.png" alt="Trey Rayne"/>
-        <div class="caption">Trey Rayne in the middle of club business.</div>
       </div>
       <div class="gallery-item">
         <img src="assets/img/truepath ride.png" alt="Truepath ride"/>
-        <div class="caption">Tarnished Chapter on the Truepath ride.</div>
       </div>
+    </div>
+
+    <div class="lightbox" id="galleryLightbox" aria-hidden="true">
+      <button class="lightbox-close" aria-label="Close gallery view">×</button>
+      <img src="" alt="Expanded gallery photo" class="lightbox-image" />
     </div>
 
     <p class="sub" style="margin-top:28px;">Your event photos are now live in the gallery. Add or replace images in <code>assets/img/</code> to refresh the page.</p>
@@ -121,7 +106,40 @@
       <strong>Salvation of Souls MC</strong> — Loyalty Above All — GTA RP<br/>
       <span class="small">This website is for roleplay purposes in GTA RP. Not affiliated with real motorcycle clubs.</span>
     </div>
-    <img src="assets/img/pack2.png" alt="Salvation of Souls MC"/>
+    <img src="assets/img/SOSMC_new_patch_2.png" alt="Salvation of Souls MC"/>
   </div>
 </footer>
+<script>
+  const lightbox = document.getElementById('galleryLightbox');
+  const lightboxImage = lightbox.querySelector('.lightbox-image');
+  const galleryItems = document.querySelectorAll('.gallery-item img');
+  const closeButton = lightbox.querySelector('.lightbox-close');
+
+  galleryItems.forEach((img) => {
+    img.addEventListener('click', () => {
+      lightboxImage.src = img.src;
+      lightboxImage.alt = img.alt;
+      lightbox.classList.add('open');
+      lightbox.setAttribute('aria-hidden', 'false');
+    });
+  });
+
+  const closeLightbox = () => {
+    lightbox.classList.remove('open');
+    lightbox.setAttribute('aria-hidden', 'true');
+    lightboxImage.src = '';
+  };
+
+  closeButton.addEventListener('click', closeLightbox);
+  lightbox.addEventListener('click', (event) => {
+    if (event.target === lightbox || event.target === closeButton) {
+      closeLightbox();
+    }
+  });
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && lightbox.classList.contains('open')) {
+      closeLightbox();
+    }
+  });
+</script>
 </body>
